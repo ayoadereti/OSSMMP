@@ -120,56 +120,24 @@
 		/>
 	</div>
 
-	<Dropdown
-		bind:show={show}
-		on:change={(e) => {
-			if (e.detail === false) {
-				onClose();
-			}
-		}}
-		align="end"
-	>
-		<Tooltip content={$i18n.t('Add Content')}>
-			<button
-				class="p-1.5 rounded-xl hover:bg-gray-100 dark:bg-gray-850 dark:hover:bg-gray-800 transition font-medium text-sm flex items-center space-x-1"
-				on:click={(e) => {
-					e.stopPropagation();
-					show = true;
-				}}
-			>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 16 16"
-					fill="currentColor"
-					class="w-4 h-4"
-				>
-					<path
-						d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z"
-					/>
-				</svg>
-			</button>
-		</Tooltip>
+	<Tooltip content={$i18n.t('Add Content')}>
+ 	<button
+ 		class="p-1.5 rounded-xl hover:bg-gray-100 dark:bg-gray-850 dark:hover:bg-gray-800 transition font-medium text-sm flex items-center space-x-1"
+ 		on:click={() => goto('/path/to/role/edit')}
+ 	>
+ 		<svg
+ 			xmlns="http://www.w3.org/2000/svg"
+ 			viewBox="0 0 16 16"
+ 			fill="currentColor"
+ 			class="w-4 h-4"
+ 		>
+ 			<path
+ 				d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z"
+ 			/>
+ 		</svg>
+ 	</button>
+ </Tooltip>
 
-		<div slot="content">
-			<DropdownMenu.Content
-				class="w-full max-w-44 rounded-xl p-1 z-50 bg-white dark:bg-gray-850 dark:text-white shadow"
-				sideOffset={4}
-				side="bottom"
-				align="end"
-				transition={flyAndScale}
-			>
-				<DropdownMenu.Item
-					class="flex gap-2 items-center px-3 py-2 text-sm cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md"
-					on:click={() => {
-						goto('/path/to/role/edit');
-					}}
-				>
-					<ArrowUpCircle strokeWidth="2" />
-					<div class="flex items-center">{$i18n.t('Go to Other Page')}</div>
-				</DropdownMenu.Item>
-			</DropdownMenu.Content>
-		</div>
-	</Dropdown>
 </div>
 
 <div class="role-list">
